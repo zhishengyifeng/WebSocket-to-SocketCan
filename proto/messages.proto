@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package messages;
+
+message MonotonicClock{
+  uint32 us_since_system_boot = 1;
+}
+
+message WebSocket_Client {
+  bool command = 1;
+  float data = 2;
+  MonotonicClock receive_time = 3;
+}
+
+message WebSocket_Server {
+  string command = 1;
+  string data = 2;
+  MonotonicClock receive_time = 3;
+}
+
+message SocketCanRX {
+  string motor_data = 1;
+  MonotonicClock receive_time = 2;
+}
